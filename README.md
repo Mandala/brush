@@ -23,7 +23,7 @@ import (
     "fmt"
     "os"
 
-    "github.com/mandala/brush"
+    "github.com/Mandala/brush"
 )
 
 func main() {
@@ -40,7 +40,7 @@ func main() {
 
 ## API Documentation
 
-Access Brush API documentation on Godoc.org at <https://godoc.org/github.com/Mandala/brush>.
+Brush API documentation is available on Godoc.org at <https://godoc.org/github.com/Mandala/brush>.
 
 ## Bugs and Feature Requests
 

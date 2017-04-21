@@ -20,7 +20,7 @@ example section on how to use the brush wrapper with os.Stdout writer.
 
 Bugs and Feature Requests
 
-Please report them on https://github.com/mandala/brush/issues.
+Please report them on https://github.com/Mandala/brush/issues.
 
 License
 
