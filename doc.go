@@ -13,7 +13,7 @@ Usage
 
 Get the package from your favorite terminal by running
 
-	go get -u github.com/mandala/brush
+	go get -u github.com/Mandala/brush
 
 Then, include it in your package and wrap your writer with brush.Wrap(). See
 example section on how to use the brush wrapper with os.Stdout writer.

@@ -13,7 +13,7 @@ anything else.
 Get the package from your favorite terminal by running
 
 ```
-go get -u github.com/mandala/brush
+go get -u github.com/Mandala/brush
 ```
 
 Then, include it in your package and wrap your writer with `brush.Wrap()`.
@@ -38,31 +38,13 @@ func main() {
 }
 ```
 
-## API List
+## API Documentation
 
-Supported color and formatting.
-
-Function | Description
--------- | -----------
-`Off()` | Turn off color and bold formatting
-`Bold()` | Bold formatting (should be followed by color to apply)
-`NoBold()` | Turn off bold formatting (should be followed by color to apply)
-`NoColor()` | Turn off color
-`Red()` | Red color
-`Green()` | Green color
-`Orange()` | Orange color
-`Blue()` | Blue color
-`Purple()` | Purple color
-`Cyan()` | Cyan color
-`Gray()` | Gray color
-
-The wrapper also implement `io.Writer` interface that directly pass writes to
-underlying writer interface.
+Access Brush API documentation on Godoc.org at <https://godoc.org/github.com/Mandala/brush>.
 
 ## Bugs and Feature Requests
 
-Please report bugs and feature requests on
-<https://github.com/mandala/brush/issues>.
+Please report bugs and feature requests on <https://github.com/Mandala/brush/issues>.
 
 ## License
 

@@ -43,20 +43,21 @@ var formatBytes = [][]byte{
 	[]byte("\033[1;37m"),
 }
 
-// Writer wraps io.Writer and store related formatting state. User should use
-// Wrap function to create new Writer struct instead of manual instantiation.
+// Writer function wraps io.Writer and store related formatting state. User
+// should use Wrap function to create new Writer struct instead of manual
+// instantiation.
 type Writer struct {
 	io.Writer
 	format int
 	color  bool
 }
 
-// Color get underlying writer color support status.
+// Color function get underlying writer color support status.
 func (w Writer) Color() bool {
 	return w.color
 }
 
-// Bold set bold formatting
+// Bold method set bold formatting (should be followed by a color command).
 func (w *Writer) Bold() *Writer {
 	if w.color {
 		w.format |= formatBold
@@ -64,7 +65,7 @@ func (w *Writer) Bold() *Writer {
 	return w
 }
 
-// NoBold unset bold formatting
+// NoBold method unset bold formatting (should be followed by a color command).
 func (w *Writer) NoBold() *Writer {
 	if w.color {
 		w.format &= ^formatBold
@@ -72,7 +73,7 @@ func (w *Writer) NoBold() *Writer {
 	return w
 }
 
-// Off unset all formatting
+// Off method unset all formatting.
 func (w *Writer) Off() {
 	if !w.color {
 		return
@@ -81,7 +82,7 @@ func (w *Writer) Off() {
 	w.update()
 }
 
-// NoColor unset all color
+// NoColor method unset all color.
 func (w *Writer) NoColor() {
 	if !w.color {
 		return
@@ -90,7 +91,7 @@ func (w *Writer) NoColor() {
 	w.update()
 }
 
-// Red set red color
+// Red method set to red color.
 func (w *Writer) Red() {
 	if !w.color {
 		return
@@ -100,7 +101,7 @@ func (w *Writer) Red() {
 	w.update()
 }
 
-// Green set green color
+// Green method set to green color.
 func (w *Writer) Green() {
 	if !w.color {
 		return
@@ -110,7 +111,7 @@ func (w *Writer) Green() {
 	w.update()
 }
 
-// Orange set orange color
+// Orange method set to orange color.
 func (w *Writer) Orange() {
 	if !w.color {
 		return
@@ -120,7 +121,7 @@ func (w *Writer) Orange() {
 	w.update()
 }
 
-// Blue set blue color
+// Blue method set to blue color.
 func (w *Writer) Blue() {
 	if !w.color {
 		return
@@ -130,7 +131,7 @@ func (w *Writer) Blue() {
 	w.update()
 }
 
-// Purple set purple color
+// Purple method set to purple color.
 func (w *Writer) Purple() {
 	if !w.color {
 		return
@@ -140,7 +141,7 @@ func (w *Writer) Purple() {
 	w.update()
 }
 
-// Cyan set cyan color
+// Cyan method set to cyan color.
 func (w *Writer) Cyan() {
 	if !w.color {
 		return
@@ -150,7 +151,7 @@ func (w *Writer) Cyan() {
 	w.update()
 }
 
-// Gray set gray color
+// Gray method set to gray color.
 func (w *Writer) Gray() {
 	if !w.color {
 		return
@@ -160,8 +161,8 @@ func (w *Writer) Gray() {
 	w.update()
 }
 
-// Wrap create new Writer object by wrapping existing io.Writer interface and
-// detect its ability to display color.
+// Wrap function create new Writer object by wrapping existing io.Writer
+// interface and detect its ability to display color.
 func Wrap(w io.Writer) *Writer {
 	return &Writer{
 		Writer: w,
@@ -169,7 +170,7 @@ func Wrap(w io.Writer) *Writer {
 	}
 }
 
-// Update write current formatting state to underlying writer.
+// Update function write current formatting state to underlying writer.
 func (w Writer) update() error {
 	// Write format bytes to underlying writer
 	_, err := w.Write(formatBytes[w.format])
